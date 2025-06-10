@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { View, TextInput, Text, Button, StyleSheet } from 'react-native';
 import db from '../database/db';
 
-export default function AdicionarScreen({ navigation }) {
-  const [nome, setNome] = useState('');
+export default function AdicionarScreen({ navigation/*nao precisa de route pq o id nao é extraido */}) {
+  const [nome, setNome] = useState(''); //mema pica do alterar
   const [telefone, setTelefone] = useState('');
   const [erro, setErro] = useState('');
 
   const salvar = async () => {
-    if (!nome || !telefone) return;
-    await db.runAsync('INSERT INTO contatos (nome, telefone) VALUES (?, ?)', nome, telefone);
-    navigation.goBack();
+    if (!nome || !telefone) return; //se faltar dado volta pra corrigir
+    await db.runAsync('INSERT INTO contatos (nome, telefone) VALUES (?, ?)', nome, telefone); //coloca o caba novo no banco
+    navigation.goBack(); //volta pagina
   };
 
+//mesma coisa do alterar
   return (
     <View style={styles.container}>
       <View style={styles.inputGroup}>

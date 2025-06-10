@@ -12,8 +12,8 @@ export default function Contato({ dados, recarregar, navigation }) {
     <View style={{ padding: 10 }}>
       <Text>{dados.nome}</Text>
       <Text>{dados.telefone}</Text>
-      <Button title="Ligar" onPress={() => Linking.openURL(`tel:${dados.telefone}`)} />
-      <Button title="Alterar" onPress={() => navigation.navigate("Alterar", { contato_id: dados.id })} />
+      <Button title="Ligar" onPress={() => Linking.openURL(`tel:${dados.telefone}`)} /> {/*tu q passou essa bomba*/}
+      <Button title="Alterar" onPress={() => navigation.navigate("Alterar", { contato_id: dados.id })} /> {/* abre a pagina alterar com o id especifico dele*/}
       <Button title="Excluir" onPress={excluir} />
     </View>
   );

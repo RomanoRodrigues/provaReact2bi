@@ -7,6 +7,7 @@ import AlterarScreen from './screens/AlterarScreen';
 
 const Stack = createNativeStackNavigator();
 
+//só definicao de tela(view)
 export default function App() {
   return (
     <PaperProvider>
